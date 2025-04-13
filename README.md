@@ -92,6 +92,7 @@ btop dunst fastfetch fish nwg-look hyprland kitty micro nemo rofi-wayland waybar
 - [u/Derwhondi](https://www.reddit.com/r/OneTruthPrevails/comments/hw191n/pixel_redraw_of_dancing_conan_this_is_from/) for the amazing Conan pixel art! Straight up gorgeous.
 - [gh0stzk's dotfiles](https://github.com/gh0stzk/dotfiles) for inspiring me with the Pac-Man workspace thing, it's brilliant.
 - [spicetify's Nord theme](https://github.com/Comfy-Themes/Spicetify/blob/main/Comfy/README.md)
+- [Weather module for Waybar](https://gist.github.com/Surendrajat/ff3876fd2166dd86fb71180f4e9342d7)
 - [Nordzy-cursors](https://github.com/guillaumeboehm/Nordzy-cursors)
 - [Nordzy-icons](https://github.com/MolassesLover/Nordzy-icon)
 - [NordArc-Theme](https://github.com/robertovernina/NordArc)
