@@ -47,7 +47,7 @@ for conf in "${confs[@]}"; do
 
     # Copy original confs. if they exist
     if [ -d "$HOME/.config/$conf" ]; then
-        cp -r "$HOME/.config/$conf" "$HOME/.config/hyprnord-bak"
+        mv "$HOME/.config/$conf" "$HOME/.config/hyprnord-bak"
     fi
 
     cp -rf "$SRCDIR/config/$conf" "$HOME/.config"
@@ -91,6 +91,9 @@ fi
 
 # shellcheck disable=SC2164
 cd "$SRCDIR"
+
+echo "Cleaning.."
+rm -rf "$SRCDIR/.tmp"
 
 echo "Installer finished! Please reload to see the effects."
 echo "Enjoy hyprnord! o/"
