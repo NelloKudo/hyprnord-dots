@@ -38,11 +38,15 @@ https://github.com/user-attachments/assets/33b77a0e-abfa-4a52-be50-0113f5b195e0
 ## Installation ❄️
 
 For **Arch Linux** based distros, running the install script is enough to have everything up and running!
+</div>
+
 ```
 git clone https://github.com/NelloKudo/hyprnord-dots.git
 cd hyprnord-dots
 ./hyprnord-dots-install.sh
 ```
+<div align="center">
+
 ---
 The script was written with other distros in mind too — just make sure you install the required packages yourself beforehand, and everything should work just fine.
 ```
@@ -95,7 +99,6 @@ btop dunst fastfetch fish nwg-look hyprland kitty micro nemo rofi-wayland waybar
 - [Nerd Fonts](https://www.nerdfonts.com/) for existing.
 - All the programs used to make the config!
 ---
-<div align="center">
   
 ```
 _______________ 
@@ -107,4 +110,3 @@ _______________
                 ||----w |
                 ||     ||
 ```
-</div>
