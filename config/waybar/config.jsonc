@@ -1,0 +1,148 @@
+// Waybar Nord config by NelloKudo.
+// Made for Hyprland, might work on Sway after some messing, too.
+
+// -*- mode: jsonc -*-
+{   
+    // Position
+    "layer": "bottom",
+    "position": "bottom",
+    "height": 41,
+
+    // Margins
+    "margin-bottom": 10,
+    "margin-left": 15,
+    "margin-right": 15,
+
+    // Modules order
+    "modules-left": ["custom/spacer","custom/launcher","custom/spacer","custom/sep","cpu",
+                    "custom/sep","memory","custom/sep","custom/media"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["tray","custom/sep","custom/weather","custom/sep","pulseaudio","custom/sep","clock",
+                    "custom/sep","custom/spacer","custom/powermenu","custom/spacer"],
+    
+    // Modules
+    
+    // Pac-Man inspired workspaces from: https://github.com/gh0stzk/dotfiles
+    // Please change persistent-workspaces according to your config.
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "sort-by-number": true,
+        "format-icons": {
+            "active": "󰮯",
+            "urgent": "󰑊",
+            "default": "󰊠",
+            "focused": "󰮯",
+            "empty": "󰑊"
+        },
+        "persistent-workspaces": {
+            "DP-2": [1, 2, 3, 4, 5, 6],
+            "HDMI-A-1": [7, 8, 9, 10, 11]
+        }
+    },
+
+    // Simple CPU module:
+    "cpu": {
+        "format": "<span color='#bf616a'>󰍛</span> {usage}%",
+        "interval": 2
+    },
+
+    // Simple Memory module:
+    "memory": {
+        "interval": 3,
+        "format": "<span color='#b48ead'> </span> {used:0.1f}G"
+    },
+
+    // Simple Disk module:
+    "disk": {
+        "interval": 60,
+        "unit": "GB",
+        "path": "/home",
+        "format": "<span color='#ebcb8b'> </span> {free}"
+    },
+
+    // Minimal PulseAudio plugin:
+    // Needs: Wireplumber, Pavucontrol
+    "pulseaudio": {
+        "format": "<span color='#a3be8c'>{icon} </span>{volume}%",
+        "format-muted": "<span color='#f38ba8'>󰝟</span>",
+        "tooltip": false,
+        "on-click": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 10%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 10%-",
+        "format-icons": {
+        "headphone": "",
+        "headset": "",
+        "default": [
+            "",
+            "",
+            " "
+        ]
+        }
+    },
+
+    // Simple Clock module:
+    "clock": {
+        "format": "<span color='#89b4fa'>󰥔  </span>{:%H:%M | %a %d %b}"
+    },
+
+    // Simple Tray module:
+    "tray": {
+        "icon-size": 16,
+        "icon-theme": "Papirus",
+        "spacing": 2
+    },
+
+    // Just a simple spacer
+    "custom/spacer": {
+        "format": " "
+    },
+
+    // Just a clean sep
+    "custom/sep": {
+        "format": "◆"
+    },
+    
+    // Custom weather module
+    // Depends on weather.py from: https://gist.github.com/Surendrajat/ff3876fd2166dd86fb71180f4e9342d7#file-weather-py
+    // Already bundled in dotfiles.
+    // Please change the script to your own city!
+    "custom/weather": {
+        "format" : "{0}",
+        "max-length": 5,
+        "exec": "$HOME/.config/waybar/weather.py 2> /dev/null",
+        "restart-interval": 300,
+        "return-type": "json",
+        "on-click": "$HOME/.config/waybar/weather.py -o 2> /dev/null"
+    },
+
+    // Custom player module
+    // Depends on mediaplayer.py from Waybar's repo,
+    // bundled in dotfiles.
+    "custom/media": {
+        "format": "<span color='#a3be8c'> </span> {0}",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 10,
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    },
+
+    // Custom launcher module
+    // Depends on rofi.
+    "custom/launcher": {
+        "format": "󰣇",
+        "on-click": "rofi -show drun"
+    },
+
+    // Custom powermenu module
+    // Depends on rofi and custom powermenu.
+    "custom/powermenu": {
+        "format": "",
+        "on-click": "$HOME/.config/rofi/powermenu.sh 2> /dev/null"
+    }
+}
+

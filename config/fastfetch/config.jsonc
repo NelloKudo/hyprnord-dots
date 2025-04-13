@@ -1,0 +1,66 @@
+{
+    "logo": {
+        "source": "~/.config/fastfetch/logo.png",
+        "width": 22,
+        "height": 13,  
+        "padding": {
+            "top": 1,
+            "right": 4
+        }
+    },
+    "display": {
+        "separator": " "
+    },
+    "modules": [
+		"break",
+		"break",
+	{
+            "type": "title",
+            "keyWidth": 10
+        },
+        "break",
+        {
+            "type": "os",
+            "key": " ",
+            "keyColor": "36"
+        },
+        {
+            "type": "kernel",
+            "key": " ",
+            "keyColor": "31"
+        },
+        {
+            "type": "cpu",
+            "format": " {name} ({cores-physical}C/{cores-logical}T) @ {freq-max}",
+            "key": "󰍛",
+            "keyColor": "35"
+        },
+        {
+            "type": "shell",
+            "key": " ",
+            "keyColor": "32"
+        },
+        {
+            "type": "terminal",
+            "key": " ",
+            "keyColor": "33"
+        },
+        {
+            "type": "wm",
+            "key": " ",
+            "keyColor": "34"
+        },
+        {
+            "type": "uptime",
+            "key": " ",
+            "keyColor": "31"
+        },
+        {
+            "type": "media",
+            "key": "󰝚 ",
+            "keyColor": "36"
+        },
+        "break",
+        "colors"
+    ]
+}
