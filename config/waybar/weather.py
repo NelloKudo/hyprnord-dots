@@ -13,7 +13,7 @@ import sys
 # once you choose your location, you can see the location_id in the URL(64 chars long hex string)
 # like this: https://weather.com/en-IN/weather/today/l/c3e96d6cc4965fc54f88296b54449571c4107c73b9638c16aafc83575b4ddf2e
 # once you get the location_id, you can replace the below location_id with your own location_id
-location_id = "9f20e8298d7a975a1202a3d985934a0bbaab4663234c9f8ad9f342a5a9602609"
+location_id = "104b5c3a7e17868e40f84026b44fd565a02ee18193bb030a5cbd3076e58c01bc"
 
 # celcius or fahrenheit
 unit = "metric"  # metric or imperial
