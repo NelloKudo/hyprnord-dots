@@ -31,7 +31,8 @@ echo "Welcome to Hyprnord-dots installer!"
 if command -v pacman >/dev/null 2>&1; then
     echo "Arch-based distro detected, installing deps.."
     sudo pacman -Sy --noconfirm btop dunst fastfetch fish nwg-look hyprland kitty micro \
-    rofi-wayland waybar grim slurp jq wl-clipboard libnotify
+        nemo rofi-wayland waybar grim slurp swaybg python-pyquery jq \
+        wl-clipboard libnotify
 fi
 
 echo "Creating backups at: $HOME/.config/hyprnord-bak"
@@ -60,7 +61,7 @@ cd "$SRCDIR/.tmp" || (echo "The directory's missing, something went wrong.." && 
 links=("$ICONSLINK" "$HYPRCURSORLINK" "$CURSORLINK" "$CASCLINK" "$RECLINK")
 for link in "${links[@]}"; do
     echo "Downloading from: $link"
-    curl -O "$link" || (echo "Download failed, please try again.." && rm -rf "$SRCDIR/.tmp" && exit 1)
+    curl -L -O "$link" || (echo "Download failed, please try again.." && rm -rf "$SRCDIR/.tmp" && exit 1)
 done
 
 echo "Installing fonts.."
@@ -81,7 +82,7 @@ tar -xf "$SRCDIR/local/share/themes/NordArc-Theme.tar.gz" -C "$HOME/.local/share
 cd "$SRCDIR"
 
 ## Setting gtk-theme with nwg-look only if installed.
-## Some distros might be missing it: you can follow 
+## Some distros might be missing it: you can follow
 ## https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland if so.
 if command -v nwg-look >/dev/null 2>&1; then
     nwg-look -x
