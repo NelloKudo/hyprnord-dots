@@ -53,6 +53,12 @@ for conf in "${confs[@]}"; do
     cp -rf "$SRCDIR/config/$conf" "$HOME/.config"
 done
 
+## Also installing nwg-look config..
+if [ -d "$HOME/.local/share/nwg-look" ]; then
+    cp -r "$HOME/.local/share/nwg-look" "$HOME/.config/hyprnord-bak"
+fi
+cp -rf "$SRCDIR/local/share/nwg-look" "$HOME/.local/share"
+
 ## Downloading fonts, icons, gtk theme etc.
 echo "Config done, now installing themes/icons/fonts.."
 mkdir -p "$SRCDIR/.tmp"
@@ -78,6 +84,10 @@ tar -xf "Nordzy-dark.tar.gz" -C "$HOME/.local/share/icons"
 
 echo "Installing theme.."
 tar -xf "$SRCDIR/local/share/themes/NordArc-Theme.tar.gz" -C "$HOME/.local/share/themes"
+
+if command -v nwg-look >/dev/null 2>&1; then
+    nwg-look -a
+fi
 
 # shellcheck disable=SC2164
 cd "$SRCDIR"
