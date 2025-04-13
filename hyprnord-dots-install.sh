@@ -69,6 +69,7 @@ mkdir -p "$HOME/.local/share/fonts/Recursive"
 mkdir -p "$HOME/.local/share/fonts/CascadiaCode"
 unzip -d "$HOME/.local/share/fonts/Recursive" -q "Recursive.zip"
 unzip -d "$HOME/.local/share/fonts/CascadiaCode" -q "CascadiaCode.zip"
+cp -r "$SRCDIR/local/share/fonts/Overpass" "$HOME/.local/share/fonts"
 
 echo "Installing icons.."
 tar -xf "Nordzy-cursors.tar.gz" -C "$HOME/.local/share/icons"
@@ -80,13 +81,6 @@ tar -xf "$SRCDIR/local/share/themes/NordArc-Theme.tar.gz" -C "$HOME/.local/share
 
 # shellcheck disable=SC2164
 cd "$SRCDIR"
-
-## Setting gtk-theme with nwg-look only if installed.
-## Some distros might be missing it: you can follow
-## https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland if so.
-if command -v nwg-look >/dev/null 2>&1; then
-    nwg-look -x
-fi
 
 echo "Installer finished! Please reload to see the effects."
 echo "Enjoy hyprnord! o/"
